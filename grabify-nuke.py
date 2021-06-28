@@ -24,10 +24,8 @@ messages = [
 	"HAHAHAHAHAHA - myg0t.win",
 	"WE NEED A WHITE HOLOCAUST! #BLM",
 	"FUCK ALL WHITE PIGS #ACAB #BLM",
-	"AFRICAN WORMS ARE GETTING INTO OUR WHITE CHRISTIAN BLOOD STREAMS AND WE MUST STOP IT!!! https://myg0t.win/",
 	"All cops are racist and white pigs! #ACAB #BlackLivesMatter",
 	"BLACK LIVES MATTER YOU WHITE PIGS #KillAllWhites",
-	"FUCK CHINK WORMS THEY ALL STINK AND STEAL OUR WHITE MONEY - myg0t.win",
 ]
 
 def get_random_message():
