@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 import struct
 import logging
@@ -11,6 +12,7 @@ from base64 import b64decode, b64encode
 # Set our config for logging to a file.
 logging.basicConfig(filename='aztak.log',
                     filemode='w',
+                    stream=sys.stdout,
                     format='%(asctime)s - (%(levelname)s) => %(message)s',
                     datefmt='%d-%b-%y %H:%M:%S',
                     level=logging.INFO)
