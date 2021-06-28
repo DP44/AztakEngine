@@ -13,7 +13,7 @@ logging.basicConfig(filename='aztak.log',
                     filemode='w',
                     format='%(asctime)s - (%(levelname)s) => %(message)s',
                     datefmt='%d-%b-%y %H:%M:%S',
-                    level=logging.NOTSET)
+                    level=logging.INFO)
 
 # --------------------------------------------------------------------------
 # DESCRIPTION:  Logs a message and writes it to aztak.log.
