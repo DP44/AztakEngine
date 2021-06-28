@@ -19,7 +19,7 @@ bot = commands.Bot(command_prefix='$', intents=intents)
 # List of user IDS for the devs.
 dev_ids = [
     665755257460097064, # Mili#0001
-    815437692858531870, # jewish sex man#5613
+    815437692858531870, # DonkeyPounder44#5613
 ]
 
 # --------------------------------------------------------------------------
