@@ -43,13 +43,14 @@ class CleanZoo(commands.Cog):
 
     @tasks.loop(hours=24.0)
     async def clean_zoo(self):
-        bf.log("cleaning #zoo.", level=1)
-
         # Get the zoo channel.
         zoo = self.bot.get_channel(838085979784871936)
 
         message_count = await self.get_message_count(zoo)
 
+        bf.log("cleaning #zoo.")
+
+        # Purge collected messages.
         deleted_messages = await zoo.purge(limit=message_count, 
                                            check=self.check_message)
 

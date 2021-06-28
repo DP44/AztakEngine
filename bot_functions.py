@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 import struct
 import logging
@@ -11,9 +12,10 @@ from base64 import b64decode, b64encode
 # Set our config for logging to a file.
 logging.basicConfig(filename='aztak.log',
                     filemode='w',
-                    format='%(asctime)s - (%(levelname)s) => %(message)s',
+                    # stream=sys.stdout,
+                    format='%(asctime)s - (%(levelname)s) => %(message)s\n',
                     datefmt='%d-%b-%y %H:%M:%S',
-                    level=logging.NOTSET)
+                    level=logging.INFO)
 
 # --------------------------------------------------------------------------
 # DESCRIPTION:  Logs a message and writes it to aztak.log.
@@ -34,14 +36,14 @@ logging.basicConfig(filename='aztak.log',
 #               crashmsg        -> The message to show when something fatal
 #                                  Happens.
 # --------------------------------------------------------------------------
-def log(message, level=40, 
-        crashmsg='Bot has encountered a fatal error, check logfile.'):
+def log(message, level=20,
+        crashmsg='Bot has encountered a fatal error'):
     if level in [4, 40]:
         logging.error(message, exc_info=True)
     
     if level in [5, 50]:
         logging.critical(message, exc_info=True)
-        print(f'{crashmsg} Check aztak.log for traceback info.')
+        print(f'{crashmsg}. Check aztak.log for traceback info.')
         exit()
     else:
         logging.log(level, message)
@@ -435,7 +437,7 @@ def get_address_info(addr,
 def calculate_account_age(uid):
     duration = datetime.now() - datetime.fromtimestamp(
         ((uid >> 22) + 1420070400000) / 1000
-        )
+    )
 
     total_seconds = duration.total_seconds()
     

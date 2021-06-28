@@ -52,7 +52,7 @@ async def on_member_join(member):
                 f"[Age: {bf.calculate_account_age(member.id)}], " + 
                 f"do $verify to gain access to the server")
         except Exception as e:
-            bf.log(e)
+            bf.log(e, level=40)
 
 # --------------------------------------------------------------------------
 # COMMAND:      Force clear the zoo channel,
@@ -74,7 +74,7 @@ async def cleanzoo(ctx):
         msg = bf.box("Exception Handler", 
                      f"Exception caught in command 'cleanzoo'!\n" + 
                      f"Exception: {str(e)}")
-        bf.log(e)
+        bf.log(e, level=40)
         await ctx.send(f"```{msg}```")
 
 # --------------------------------------------------------------------------
@@ -107,7 +107,7 @@ async def floodgrabify(ctx, url : str):
         msg = bf.box("Exception Handler", 
                      f"Exception caught in command 'floodgrabify'!\n" + 
                      f"Exception: {str(e)}")
-        bf.log(e)
+        bf.log(e, level=40)
         await ctx.send(f"```{msg}```")
 
 # --------------------------------------------------------------------------
@@ -165,7 +165,7 @@ async def approve(ctx, user : discord.Member):
         msg = bf.box("Exception Handler", 
                      f"Exception caught in command 'approve'!\n" + 
                      f"Exception: {str(e)}")
-        bf.log(e)
+        bf.log(e, level=40)
         await ctx.send(f"```{msg}```")
 
 # --------------------------------------------------------------------------
@@ -187,7 +187,7 @@ async def exchange(ctx, value, current_type, target_type):
         msg = bf.box("Exception Handler", 
                      f"Exception caught in command 'exchange'!\n" + 
                      f"Exception: {str(e)}")
-        bf.log(e)
+        bf.log(e, level=40)
         await ctx.send(f"```{msg}```")
 
 # --------------------------------------------------------------------------
@@ -214,7 +214,7 @@ async def getrec(ctx, addr : str, record='txt'):
         msg = bf.box("Exception Handler", 
                      f"Exception caught in command 'getrec'!\n" + 
                      f"Exception: {str(e)}")
-        bf.log(e)
+        bf.log(e, level=40)
         await ctx.send(f"```{msg}```")
 
 # --------------------------------------------------------------------------
@@ -248,7 +248,7 @@ Proxy, VPN, or Tor exit address : {response[7]}"""
         msg = bf.box("Exception Handler", 
                      f"Exception caught in command 'ipinfo'!\n" + 
                      f"Exception: {str(e)}")
-        bf.log(e)
+        bf.log(e, level=40)
         await ctx.send(f"```{msg}```")
 
 # --------------------------------------------------------------------------
@@ -274,7 +274,7 @@ async def isjewish(ctx, name : str):
         msg = bf.box("Exception Handler", 
                      f"Exception caught in command 'isjewish'!\n" + 
                      f"Exception: {str(e)}")
-        bf.log(e)
+        bf.log(e, level=40)
         await ctx.send(f"```{msg}```")
 
 # --------------------------------------------------------------------------
@@ -297,7 +297,7 @@ async def purge(ctx, number : int=5):
         msg = bf.box("Exception Handler", 
                      f"Exception caught in command 'purge'!\n" + 
                      f"Exception: {str(e)}")
-        bf.log(e)
+        bf.log(e, level=40)
         await ctx.send(f"```{msg}```")
 
 # --------------------------------------------------------------------------
@@ -320,7 +320,7 @@ async def shutdown(ctx):
         msg = bf.box("Exception Handler", 
                      f"Exception caught in command 'shutdown'!\n" + 
                      f"Exception: {str(e)}")
-        bf.log(e)
+        bf.log(e, level=40)
         await ctx.send(f"```{msg}```")
 
 # --------------------------------------------------------------------------
@@ -403,7 +403,7 @@ async def tobytes(ctx, data, byteorder='little'):
         msg = bf.box("Exception Handler", 
                      f"Exception caught in command 'tobytes'!\n" + 
                      f"Exception: {str(e)}")
-        bf.log(e)
+        bf.log(e, level=40)
         await ctx.send(f"```{msg}```")
 
 # --------------------------------------------------------------------------
@@ -429,7 +429,7 @@ async def crc17(ctx, data : str):
         msg = bf.box("Exception Handler", 
                      f"Exception caught in command 'crc17'!\n" + 
                      f"Exception: {str(e)}")
-        bf.log(e)
+        bf.log(e, level=40)
         await ctx.send(f"```{msg}```")
 
 # --------------------------------------------------------------------------
@@ -449,7 +449,7 @@ async def b64encode(ctx, string : str):
         msg = bf.box("Exception Handler", 
                      f"Exception caught in command 'b64encode'!\n" + 
                      f"Exception: {str(e)}")
-        bf.log(e)
+        bf.log(e, level=40)
         await ctx.send(f"```{msg}```")
 
 # --------------------------------------------------------------------------
@@ -468,7 +468,7 @@ async def b64decode(ctx, string : str):
         msg = bf.box("Exception Handler", 
                      f"Exception caught in command 'b64decode'!\n" + 
                      f"Exception: {str(e)}")
-        bf.log(e)
+        bf.log(e, level=40)
         await ctx.send(f"```{msg}```")
 
 # --------------------------------------------------------------------------
@@ -492,7 +492,7 @@ async def info(ctx, drug : str):
         msg = bf.box("Exception Handler", 
                      f"Exception caught in command 'info'!\n" + 
                      f"Exception: {str(e)}")
-        bf.log(e)
+        bf.log(e, level=40)
         await ctx.send(f"```{msg}```")
 
 # Our bot's entrypoint.
@@ -501,7 +501,7 @@ if __name__ == '__main__':
         # Add our cogs.
         bot.add_cog(aztak_cogs.CleanZoo(bot))
 
-
+        bf.log(f"Running {bot.user.name}.")
         bot.run(token)
     else:
         print("Bot must be run as root for cron to work.")
