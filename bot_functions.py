@@ -13,7 +13,7 @@ from base64 import b64decode, b64encode
 logging.basicConfig(filename='aztak.log',
                     filemode='w',
                     # stream=sys.stdout,
-                    format='%(asctime)s - (%(levelname)s) => %(message)s\n',
+                    format='%(asctime)s - (%(levelname)s) => %(message)s',
                     datefmt='%d-%b-%y %H:%M:%S',
                     level=logging.INFO)
 
@@ -43,7 +43,7 @@ def log(message, level=20,
     
     if level in [5, 50]:
         logging.critical(message, exc_info=True)
-        print(f'{crashmsg}. Check aztak.log for traceback info.')
+        print(f'{crashmsg} Check aztak.log for traceback info.')
         exit()
     else:
         logging.log(level, message)
