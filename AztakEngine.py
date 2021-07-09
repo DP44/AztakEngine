@@ -500,6 +500,7 @@ if __name__ == '__main__':
     if bf.is_admin():
         # Add our cogs.
         bot.add_cog(aztak_cogs.CleanZoo(bot))
+        bot.add_cog(aztak_cogs.IMVU(bot))
 
         bf.log(f"Running {bot.user.name}.")
         bot.run(token)
