@@ -55,8 +55,6 @@ class IMVU(commands.Cog):
             bf.log(e, level=40)
             await ctx.send(f"```{msg}```")
 
-        # await ctx.send("`This command is not yet implemented!`")
-
     # ----------------------------------------------------------------------
     # COMMAND:      Fetches a player's CID, used for API calls.
     # 
