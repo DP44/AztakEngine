@@ -161,6 +161,7 @@ if __name__ == '__main__':
         bot.add_cog(aztak_cogs.Deprecated(bot))
         bot.add_cog(aztak_cogs.Grabify(bot))
         bot.add_cog(aztak_cogs.Utilities(bot))
+        bot.add_cog(aztak_cogs.Twitch(bot, '.twitch_accounts'))
 
         bf.log(f"Running Aztak Engine.")
         bot.run(token)

@@ -152,3 +152,6 @@ dmypy.json
 .token
 .crypto_token
 .urlscan_api_key
+
+# Twitch account details.
+.twitch_accounts

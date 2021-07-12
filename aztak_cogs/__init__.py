@@ -6,3 +6,4 @@ from .cryptography import Cryptography
 from .debug import Debug
 from .utilities import Utilities
 from .deprecated import Deprecated
+from .twitch import Twitch
