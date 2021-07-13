@@ -54,31 +54,6 @@ async def on_member_join(member):
         except Exception as e:
             bf.log(e, level=40)
 
-"""
-# --------------------------------------------------------------------------
-# COMMAND:      Force clear the zoo channel,
-# --------------------------------------------------------------------------
-@bot.command(name="cleanzoo", brief="[DEV] Force clean the zoo channel.")
-@commands.has_permissions(administrator=True)
-async def cleanzoo(ctx):
-    try:
-        if not ctx.author.id in dev_ids:
-            await ctx.send("Sorry, you don't have permission to do this!")
-            return
-
-        zoo = bot.get_channel(838085979784871936)
-        message_count = await bf.get_message_count(zoo)
-        
-        deleted_messages = await zoo.purge(limit=message_count, 
-                                           check=bf.check_message)
-    except Exception as e:
-        msg = bf.box("Exception Handler", 
-                     f"Exception caught in command 'cleanzoo'!\n" + 
-                     f"Exception: {str(e)}")
-        bf.log(e, level=40)
-        await ctx.send(f"```{msg}```")
-"""
-
 # --------------------------------------------------------------------------
 # COMMAND:      Funny prank
 # --------------------------------------------------------------------------
@@ -122,32 +97,6 @@ async def calcdmg(ctx, dmgvalue: str):
             await ctx.send(
                 "Invalid damage value. Input should follow {BASE DAMAGE} " +
                 "{DICE NUMBER}d{DICE VALUE}+{OPTIONAL MODIFIER} format.")
-
-# --------------------------------------------------------------------------
-# COMMAND:      Joke command that checks if a user is jewish based off a 
-#               random number.
-#
-# INPUT:        name            -> The name of the user to check.
-# --------------------------------------------------------------------------
-@bot.command(name='isjewish', 
-             brief='Uses extremely advanced algorithims to determine if ' + 
-                   'the specified user is jewish.')
-async def isjewish(ctx, name : str):
-    try:
-        y = bot.get_user(int(''.join([x for x in name if x.isalnum()])))
-        x = random.random()
-
-        if x > 0.7390173876978179:
-            await ctx.send(f"{str(y).split('#')[0]} is not a jew, " + 
-                           f"chad and based.")
-        else:
-            await ctx.send(f"((({str(y).split('#')[0]})))")
-    except Exception as e:
-        msg = bf.box("Exception Handler", 
-                     f"Exception caught in command 'isjewish'!\n" + 
-                     f"Exception: {str(e)}")
-        bf.log(e, level=40)
-        await ctx.send(f"```{msg}```")
 
 # Our bot's entrypoint.
 if __name__ == '__main__':
