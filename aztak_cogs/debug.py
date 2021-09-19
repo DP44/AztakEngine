@@ -7,7 +7,7 @@ from discord.ext import tasks, commands
 # TODO: Put this in a separate file made for constants.
 dev_ids = [
     665755257460097064, # Mili#0001
-    856607025369841664, # DonkeyPounder44#3091
+    877300169186623578, # DP44#2706
 ]
 
 # --------------------------------------------------------------------------

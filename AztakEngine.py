@@ -19,7 +19,7 @@ bot = commands.Bot(command_prefix='$', intents=intents)
 # List of user IDS for the devs.
 dev_ids = [
     665755257460097064, # Mili#0001
-    856607025369841664, # DonkeyPounder44#3091
+    877300169186623578, # DP44#2706
 ]
 
 # --------------------------------------------------------------------------
@@ -37,6 +37,7 @@ async def on_ready():
 # --------------------------------------------------------------------------
 @bot.event
 async def on_member_join(member):
+    # TODO: Move both this event and the verify command to it's own cog.
     # Check if it's our server.
     if member.guild.id == 668977502433312780:
         try:
@@ -53,31 +54,6 @@ async def on_member_join(member):
                 f"do $verify to gain access to the server")
         except Exception as e:
             bf.log(e, level=40)
-
-"""
-# --------------------------------------------------------------------------
-# COMMAND:      Force clear the zoo channel,
-# --------------------------------------------------------------------------
-@bot.command(name="cleanzoo", brief="[DEV] Force clean the zoo channel.")
-@commands.has_permissions(administrator=True)
-async def cleanzoo(ctx):
-    try:
-        if not ctx.author.id in dev_ids:
-            await ctx.send("Sorry, you don't have permission to do this!")
-            return
-
-        zoo = bot.get_channel(838085979784871936)
-        message_count = await bf.get_message_count(zoo)
-        
-        deleted_messages = await zoo.purge(limit=message_count, 
-                                           check=bf.check_message)
-    except Exception as e:
-        msg = bf.box("Exception Handler", 
-                     f"Exception caught in command 'cleanzoo'!\n" + 
-                     f"Exception: {str(e)}")
-        bf.log(e, level=40)
-        await ctx.send(f"```{msg}```")
-"""
 
 # --------------------------------------------------------------------------
 # COMMAND:      Funny prank

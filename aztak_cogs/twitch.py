@@ -10,9 +10,9 @@ from discord.ext import tasks, commands
 # List of user IDS for people who are allowed to use the bot.
 approved_users = [
     665755257460097064, # Mili#0001
-    856607025369841664, # DonkeyPounder44#3091
-    296351518318395408, # Oskarnik (not putting his tag, too much for this)
-    826256160390643723, # chuck#3780
+    877300169186623578, # DP44#2706
+    829275326303567892, # Oskarnik (not putting his tag, too much for this)
+    878034080921448469, # chuck#3780
     253646353299668992, # chip#6569
     846993554257346592, # A5#3371
     393096618976739329, # posin#0701
