@@ -87,68 +87,6 @@ async def verify(ctx):
     await ctx.send(f"{ctx.author.mention} successfully verified, enjoy " + 
                    f"your stay.")
 
-# --------------------------------------------------------------------------
-# COMMAND:      Command for calculating damage ranges for Caves of Qud 
-#               weapons.
-# 
-# INPUT:        dmgvalue        -> The damage range of the weapon 
-#                                  (format: x xdx)
-# --------------------------------------------------------------------------
-@bot.command(name='calcdmg', 
-             brief='Calculates damage values for Caves 0f Qud weapons')
-async def calcdmg(ctx, dmgvalue: str):
-    split_value = dmgvalue.split(" ")
-    
-    if len(split_value) == 1:
-        await ctx.send("Please encase damage string in quotes")
-    else:
-        try:
-            base = int(split_value[0])
-            modifier = split_value[1].split("+")[0]
-            low = int(modifier.split("d")[0])
-            high = int(modifier.split("d")[1])
-            
-            additional_value = \
-                int(dmgvalue.split("+")[1]) if "+" in dmgvalue else 0
-            
-            modified_low = (base * low) + additional_value
-            modified_high = (base * high) + additional_value
-            average = (modified_low + modified_high) / 2
-            
-            await ctx.send(
-                f"Damage Range: {modified_low}-{modified_high}, " + 
-                f"Average Damage: {average}")
-        except ValueError:
-            await ctx.send(
-                "Invalid damage value. Input should follow {BASE DAMAGE} " +
-                "{DICE NUMBER}d{DICE VALUE}+{OPTIONAL MODIFIER} format.")
-
-# --------------------------------------------------------------------------
-# COMMAND:      Joke command that checks if a user is jewish based off a 
-#               random number.
-#
-# INPUT:        name            -> The name of the user to check.
-# --------------------------------------------------------------------------
-@bot.command(name='isjewish', 
-             brief='Uses extremely advanced algorithims to determine if ' + 
-                   'the specified user is jewish.')
-async def isjewish(ctx, name : str):
-    try:
-        y = bot.get_user(int(''.join([x for x in name if x.isalnum()])))
-        x = random.random()
-
-        if x > 0.7390173876978179:
-            await ctx.send(f"{str(y).split('#')[0]} is not a jew, " + 
-                           f"chad and based.")
-        else:
-            await ctx.send(f"((({str(y).split('#')[0]})))")
-    except Exception as e:
-        msg = bf.box("Exception Handler", 
-                     f"Exception caught in command 'isjewish'!\n" + 
-                     f"Exception: {str(e)}")
-        bf.log(e, level=40)
-        await ctx.send(f"```{msg}```")
-
 # Our bot's entrypoint.
 if __name__ == '__main__':
     if bf.is_admin():
