@@ -1,8 +1,8 @@
-
-# Created by https://www.toptal.com/developers/gitignore/api/python
-# Edit at https://www.toptal.com/developers/gitignore?templates=python
-# LOG:
+# Aztak related
 aztak.log
+.urlscan_api_key
+.token
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -147,11 +147,3 @@ dmypy.json
 
 # Bot cache
 .cache
-
-# Tokens & API keys
-.token
-.crypto_token
-.urlscan_api_key
-
-# Twitch account details.
-.twitch_accounts

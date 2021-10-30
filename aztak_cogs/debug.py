@@ -3,6 +3,8 @@ import discord.utils
 import bot_functions as bf
 from discord.ext import tasks, commands
 
+logger = bf.Logger("Debug (Cog)", 2)
+
 # List of user IDS for the devs.
 # TODO: Put this in a separate file made for constants.
 dev_ids = [
@@ -17,11 +19,14 @@ class Debug(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+        logger.message("Initializing cog: Debug")
+
     # ----------------------------------------------------------------------
     # COMMAND:      Close the bot process.
     # ----------------------------------------------------------------------
-    @commands.command(name="shutdown", brief='[DEV] Kills the bot process.', 
-                 pass_context=True)
+    @commands.command(name="shutdown",
+                      brief='[DEV] Kills the bot process.',
+                      pass_context=True)
     @commands.has_permissions(administrator=True)
     async def shutdown(self, ctx):
         try:
@@ -44,7 +49,8 @@ class Debug(commands.Cog):
     # ----------------------------------------------------------------------
     # COMMAND:      Used to make sure the bot is alive.
     # ----------------------------------------------------------------------
-    @commands.command(name='ping', brief=
-                 'Makes the bot respond with "pong", made for testing.')
+    @commands.command(name='ping', 
+                      brief='Makes the bot respond with "pong", ' + 
+                            'made for testing.')
     async def ping(self, ctx):
         await ctx.send("Pong")

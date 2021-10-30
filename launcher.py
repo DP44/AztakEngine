@@ -10,13 +10,15 @@ def print_failure(msg): print(f"[\033[1;31m-\033[1;m] {msg}")
 # DESCRIPTION:  Returns the process ID for the bot.
 # --------------------------------------------------------------------------
 def get_aztak_pid():
-    procs = subprocess.check_output("ps aux | grep AztakEngine.py", 
+    procs = subprocess.check_output("ps aux | grep aztak_engine_monke.py", 
                                     shell=True).decode().split('\n')
     bot_proc = ""
 
     proc_names = [
-        "python3 /home/ec2-user/AztakEngine/AztakEngine.py",
-        "sudo python3 AztakEngine.py"
+        "python3 /home/ec2-user/monke-chan/" + 
+            "AztakEngine/aztak_engine_monke.py",
+
+        "sudo python3 aztak_engine_monke.py"
     ]
 
     for proc in procs:
@@ -64,7 +66,8 @@ def proc_management():
     print_status("Running bot script.")
 
     # Start a new process.
-    subprocess.Popen("python3 /home/ec2-user/AztakEngine/AztakEngine.py &", 
+    subprocess.Popen("python3 /home/ec2-user/monke-chan/" + 
+                     "AztakEngine/aztak_engine_monke.py &", 
                      shell=True)
 
 # --------------------------------------------------------------------------
