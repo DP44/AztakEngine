@@ -63,6 +63,7 @@ async def verify(ctx):
     await ctx.send(f"{ctx.author.mention} successfully verified, enjoy " + 
                    f"your stay.")
 
+
 # Our bot's entrypoint.
 if __name__ == '__main__':
     if bf.is_admin():
@@ -73,7 +74,6 @@ if __name__ == '__main__':
         bot.add_cog(aztak_cogs.Debug(bot))
         bot.add_cog(aztak_cogs.Cryptography(bot))
         bot.add_cog(aztak_cogs.Deprecated(bot))
-        bot.add_cog(aztak_cogs.Grabify(bot))
         bot.add_cog(aztak_cogs.Utilities(bot))
         bot.add_cog(aztak_cogs.Twitch(bot, '.twitch_accounts'))
 
