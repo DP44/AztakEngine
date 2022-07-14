@@ -1,4 +1,3 @@
-import asyncio
 import discord.utils
 import bot_functions as bf
 from discord.ext import tasks, commands

@@ -1,8 +1,6 @@
-import asyncio
 import requests
-import discord.utils
 import bot_functions as bf
-from discord.ext import tasks, commands
+from discord.ext import commands
 
 # --------------------------------------------------------------------------
 # COG:          A cog responsible for handling IMVU related commands.

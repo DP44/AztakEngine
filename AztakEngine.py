@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import random
+import constants
 import discord.utils
 import bot_functions as bf
 from discord.ext import commands
@@ -15,12 +16,6 @@ intents = discord.Intents.default()
 intents.members = True
 
 bot = commands.Bot(command_prefix='$', intents=intents)
-
-# List of user IDS for the devs.
-dev_ids = [
-    665755257460097064, # Mili#0001
-    877300169186623578, # DP44#2706
-]
 
 # --------------------------------------------------------------------------
 # EVENT:        Called when the bot is ready.
@@ -62,7 +57,6 @@ async def on_member_join(member):
 async def verify(ctx):
     await ctx.send(f"{ctx.author.mention} successfully verified, enjoy " + 
                    f"your stay.")
-
 
 # Our bot's entrypoint.
 if __name__ == '__main__':

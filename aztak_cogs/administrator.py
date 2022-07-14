@@ -1,14 +1,7 @@
-import asyncio
+import constants
 import discord.utils
 import bot_functions as bf
-from discord.ext import tasks, commands
-
-# List of user IDS for the devs.
-# TODO: Put this in a separate file made for constants.
-dev_ids = [
-    665755257460097064, # Mili#0001
-    856607025369841664, # DonkeyPounder44#3091
-]
+from discord.ext import commands
 
 # --------------------------------------------------------------------------
 # COG:          A cog responsible for handling Admin commands.
@@ -25,12 +18,12 @@ class Administrator(commands.Cog):
     @commands.has_permissions(administrator=True)
     async def cleanzoo(self, ctx):
         try:
-            if not ctx.author.id in dev_ids:
+            if not ctx.author.id in constants.dev_ids:
                 await ctx.send(
                     "Sorry, you don't have permission to do this!")
                 return
 
-            zoo = bot.get_channel(838085979784871936)
+            zoo = self.bot.get_channel(838085979784871936)
             message_count = await bf.get_message_count(zoo)
             
             deleted_messages = await zoo.purge(limit=message_count, 
@@ -48,7 +41,8 @@ class Administrator(commands.Cog):
     # INPUT:        user            -> The user to approve.
     # ----------------------------------------------------------------------
     @commands.command(name="approve", 
-                 brief='[ADMIN] approves a user who is restricted to #zoo.')
+                      brief='[ADMIN] approves a user who is ' + 
+                            'restricted to #zoo.')
     @commands.has_permissions(administrator=True)
     async def approve(self, ctx, user: discord.Member):
         try:
@@ -84,16 +78,14 @@ class Administrator(commands.Cog):
     # INPUT:        number          -> Number of messages to delete.
     # ----------------------------------------------------------------------
     @commands.command(name="purge", 
-                 brief='[ADMIN] Deletes a specified amount of messages.', 
-                 pass_context=True)
+                      brief='[ADMIN] Deletes a specified amount of ' + 
+                            'messages.', 
+                      pass_context=True)
     @commands.has_permissions(administrator=True)
     async def purge(self, ctx, number: int=5):
         try:
-            # Get the current channel the message was sent in.
-            channel = ctx.message.channel
-
             # Delete messages.
-            deleted_messages = await channel.purge(limit=number)
+            await ctx.message.channel.purge(limit=number + 1)
         except Exception as e:
             msg = bf.box("Exception Handler", 
                          f"Exception caught in command 'purge'!\n" + 

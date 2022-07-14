@@ -1,10 +1,8 @@
 import os
-import sys
 import json
 import struct
 import logging
 import requests
-import subprocess
 import discord.utils
 from datetime import datetime
 from base64 import b64decode, b64encode
@@ -117,8 +115,10 @@ def info(drug):
             }
            
             duration = body['properties']['duration'].split(' | ')
-            onset = [f'{x[0]}: {x[1]}' for x in [x.split(': ') for x in body['properties']['onset'].split(' | ')]]
-            dose_str = [f"{x}: {', '.join(formatted_doses[x])}" for x in formatted_doses]
+            onset = [f'{x[0]}: {x[1]}' for x in [x.split(': ') \
+                for x in body['properties']['onset'].split(' | ')]]
+            dose_str = [f"{x}: {', '.join(formatted_doses[x])}" \
+                for x in formatted_doses]
             dose_box = box("Doses", '\n'.join(dose_str))
             duration_box = box("Duration", '\n'.join(duration))
             onset_box = box("Onset", '\n'.join(onset))

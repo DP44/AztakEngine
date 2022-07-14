@@ -1,13 +1,10 @@
 import os
 import random
-import asyncio
-import requests
-import discord.utils
 import distutils.util
 import bot_functions as bf
-from discord.ext import tasks, commands
+from discord.ext import commands
 
-# List of user IDS for people who are allowed to use the bot.
+# List of user IDS for people who are allowed to use this feature.
 approved_users = [
     665755257460097064, # Mili#0001
     877300169186623578, # DP44#2706
@@ -203,9 +200,3 @@ class Twitch(commands.Cog):
                            'Example usage:\n' + 
                            '$add_account test passwd false false true```')
             return
-
-if __name__ == '__main__':
-    account_manager = TwitchAccountManager()
-
-    for i in account_manager.get_accounts():
-        print(i['username'])
